@@ -13,7 +13,7 @@ For max = 70, it finds:
 70 69 68 66 63 58 50 41 32 18
 and its total is 535
 
-Then, in findMaxResult function, 
+Then, in findResult function, 
 
 it starts with last array element up to third to start modifying such as:
 
@@ -28,7 +28,7 @@ Finally,
 70 69 68 
 and look for 65, 64, 63...  and finds new arrays that obeys the k sum rule
 
-and all the stages above are run recursively. 
+and all the stages above are run recursively in findMaxResult function. 
 
 The algorithm finally finds the array above that sums to 543
 
