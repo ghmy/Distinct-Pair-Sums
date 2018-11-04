@@ -158,8 +158,8 @@ void findMaxResult( vector<int> vals, int max, int k, int index ) {
         findMaxResult( values, max, k, i );
 }
 
-// First there elements are n, n-1 and n-2 so 
-// instead of i > 0, i > 2 is written. 
+// First three elements are max, max-1 and max-2 so 
+// instead of i > 0, i > 2 is written,  a small optimization 
 void findResult( vector<int> vals, int max, int k ) {
     for (int i = vals.size() - 1; i > 2; --i) {
         findMaxResult( vals, max, k, i );
