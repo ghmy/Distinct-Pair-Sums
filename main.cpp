@@ -157,7 +157,7 @@ void findResult( vector<int> vals, int max, int k ) {
 int main()
 {
     int k;
-    cout << "k değerini giriniz : " << endl;
+    cout << "Enter k value : " << endl;
     cin >> k;
 
     for (int i = 10; i < 75; i++) {
