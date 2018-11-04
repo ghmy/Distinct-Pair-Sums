@@ -1,30 +1,35 @@
 # DistinctKPairedSums
 Every k number sums to a different number, the algorithm finds the set that maximizes the total of its elements which obey the distinct k sums rule. 
-For k = 2
-10 | 2 | 5 | 10 9 8 6 3  ||| 36
-11 | 2 | 5 | 11 10 9 7 4  ||| 41
-12 | 2 | 5 | 12 11 10 8 5  ||| 46
-13 | 2 | 6 | 13 12 11 9 6 1  ||| 52
-14 | 2 | 6 | 14 13 12 10 7 2  ||| 58
-15 | 2 | 6 | 15 14 13 11 8 3  ||| 64
-16 | 2 | 6 | 16 15 14 12 9 4  ||| 70
-17 | 2 | 6 | 17 16 15 13 10 5  ||| 76
-18 | 2 | 6 | 18 17 16 14 11 6  ||| 82
-...
 
-For k = 3
-10 | 3 | 5 | 10 9 8 6 3  ||| 36
-11 | 3 | 5 | 11 10 9 7 4  ||| 41
-12 | 3 | 5 | 12 11 10 8 5  ||| 46
-13 | 3 | 5 | 13 12 11 9 6  ||| 51
-14 | 3 | 6 | 14 13 12 10 7 1  ||| 57
-15 | 3 | 6 | 15 14 13 11 8 2  ||| 63
-16 | 3 | 6 | 16 15 14 12 9 3  ||| 69
-17 | 3 | 6 | 17 16 15 13 10 4  ||| 75
-18 | 3 | 6 | 18 17 16 14 11 5  ||| 81
-19 | 3 | 6 | 19 18 17 15 12 6  ||| 87
-20 | 3 | 6 | 20 19 18 16 13 7  ||| 93
-21 | 3 | 6 | 21 20 19 17 14 8  ||| 99
-...
+For example, for k = 2
+
+70  69  68  66  62  55  46  41  36  24  6 
+and the total is 543. 
+
+The algorithm starts by finding an initial solution. 
+For max = 70, it finds:
+
+
+70 69 68 66 63 58 50 41 32 18
+and its total is 535
+
+Then, in findMaxResult function, 
+
+it starts with last array element up to third to start modifying such as:
+
+70 69 68 66 63 58 50 41 32 
+and look for 17, 16, 15, 14.... and finds new array that obeys the rule. 
+
+Then, 
+70 69 68 66 63 58 50 41
+and look for 31, 30, 29, 28... and finds new arrays that obeys the k sum rule.
+
+Finally, 
+70 69 68 
+and look for 65, 64, 63...  and finds new arrays that obeys the k sum rule
+
+and all the stages above are run recursively. 
+
+The algorithm finally finds the array above that sums to 543
 
 
