@@ -42,6 +42,10 @@ void setNextCombination(int comb[], int k, int n)
     }
 }
 
+// When a new number is calculated as if it satisfies the sum of every k number 
+// with the vals vector elements, every k-1 number combination + newNumber has to be
+// false in the sumCheck array. If not, then there is a k combination that sums to that
+// number in vals already, so newNumber cannot be added to vals array
 bool* checkPairSums( vector<int> vals, bool sumCheck[], int newNumber, int max, int k ) {
 
     bool localSumCheck[max * k];
@@ -70,6 +74,7 @@ bool* checkPairSums( vector<int> vals, bool sumCheck[], int newNumber, int max, 
     return sumCheck;
 }
 
+// every sum of k elements are set to true in newCheckSum array
 void setPairSums( vector<int> values, bool newCheckSum[], int max, int k ) {
     for (int i = 0; i < max * k; i++)
         newCheckSum[i] = false;
@@ -89,6 +94,9 @@ void setPairSums( vector<int> values, bool newCheckSum[], int max, int k ) {
     }
 }
 
+// Find initial values that satisfies distinct k sum rule
+// Then in findMaxResult, this initial values will be modified to
+// find larger sum of elements which also satisfies the rule
 vector<int> getInitialValues(int max, int k)
 {
     bool sumCheck[max * k];
@@ -119,6 +127,8 @@ vector<int> getInitialValues(int max, int k)
     return initialValues;
 }
 
+// Recursive algorithm
+// Main idea is implemented through this function
 void findMaxResult( vector<int> vals, int max, int k, int index ) {
     if (index == 0 || vals[index] == 1)
         return;
@@ -148,6 +158,8 @@ void findMaxResult( vector<int> vals, int max, int k, int index ) {
         findMaxResult( values, max, k, i );
 }
 
+// First there elements are n, n-1 and n-2 so 
+// instead of i > 0, i > 2 is written. 
 void findResult( vector<int> vals, int max, int k ) {
     for (int i = vals.size() - 1; i > 2; --i) {
         findMaxResult( vals, max, k, i );
@@ -175,6 +187,6 @@ int main()
         cout << " ||| " << maxSumResult << endl;
     }
 
-    cout << "Bitti" << endl;
+    cout << "End of program" << endl;
     return 0;
 }
